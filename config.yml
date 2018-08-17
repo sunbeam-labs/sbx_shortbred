@@ -1,0 +1,6 @@
+sbx_shortbred:
+ threads: 8
+ shortbred_version: 918294a74d70
+ shortbred: $CONDA_PREFIX/opt/biobakery-shortbred-918294a74d70
+ card_marker_fp: $CONDA_PREFIX/opt/shortbred_databases/ShortBRED_CARD_2017_markers.faa
+

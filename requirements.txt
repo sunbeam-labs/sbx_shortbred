@@ -1,0 +1,4 @@
+muscle
+cd-hit
+biopython
+seqtk

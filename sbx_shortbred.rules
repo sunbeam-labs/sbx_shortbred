@@ -1,0 +1,60 @@
+# -*- mode: Snakemake -*-
+
+# The original Conda environment path is 
+
+
+import os
+CONDA_PREFIX = os.getenv("CONDA_PREFIX")
+
+rule all_card:
+ input:
+  expand(str(MAPPING_FP/'sbx_shortbred'/'{sample}.sb'), sample = Samples.keys())
+
+rule fq_2_fa_shortbred:
+ input:
+  str(QC_FP/'decontam'/'{sample}_1.fastq.gz')
+ output:
+  str(MAPPING_FP/'sbx_shortbred'/'R1'/'{sample}_1.fasta')
+ shell:
+  """
+  seqtk seq -a < <(gzip -cd {input}) > {output}
+  """
+
+rule shortbred_card:
+ input:
+  R1 = str(MAPPING_FP/'sbx_shortbred'/'R1'/'{sample}_1.fasta'),
+  shortbred_quantify = Cfg['sbx_shortbred']['shortbred'] + '/shortbred_quantify.py',
+  card_markers = str(Cfg['sbx_shortbred']['card_marker_fp'])
+ output:
+  results = str(MAPPING_FP/'sbx_shortbred'/'{sample}.sb'),
+  tmp_dir = str(MAPPING_FP/'sbx_shortbred'/'tmp'/'{sample}')
+ threads:
+  Cfg['sbx_shortbred']['threads']
+ shell:
+  """
+  {input.shortbred_quantify} \
+   --markers {input.card_markers} \
+   --wgs {input.R1}	\
+   --results {output.results} \
+   --tmp {output.tmp_dir} \
+   --threads {threads}
+  """
+
+rule install_shortbred:
+ output:
+  Cfg['sbx_shortbred']['shortbred'] + '/shortbred_quantify.py'
+ params:
+  shortbred_version = Cfg['sbx_shortbred']['shortbred_version']
+ shell:
+  """
+  DIR="$CONDA_PREFIX"/opt
+  mkdir -p $DIR
+  
+  SHORTBRED_VERSION={params.shortbred_version}
+  
+  # No network access to bitbucket for chop
+  wget https://bitbucket.org/biobakery/shortbred/get/tip.zip -p $DIR || \
+       cp  /mnt/isilon/microbiome/analysis/biodata/tip.zip $DIR
+
+  unzip $DIR/tip.zip -d $DIR
+  """
