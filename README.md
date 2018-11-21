@@ -28,13 +28,13 @@
     gunzip ShortBRED_CARD_2017_markers.faa.gz
     ```
     
-    Link the marker database to the Sunbeam environment
+4. Link the marker database to the Sunbeam environment
     ```bash
     mkdir -p $CONDA_PREFIX/opt/shortbred_databases
     ln -sf $PWD/SHORTBRED_CARD_20180628_markers.faa $CONDA_PREFIX/opt/shortbred_databases
     ```
     
-    Update the Sunbeam environment.
+5. Update the Sunbeam environment.
     ```bash
     conda env update --name=sunbeam --quiet --file extensions/sbx_shortbred/requirements.txt
     ```
