@@ -11,8 +11,8 @@
 1. Clone into your Sunbeam extensions directory and update your config file
 
     ```bash
-    git clone https://github.com/zhaoc1/sbx_shortbred
-    cat sunbeam/extensions/sbx_metaphlan/config.yml >> sunbeam_config.yml
+    git clone https://github.com/sunbeam-labs/sbx_shortbred extensions/sbx_shortbred
+    cat sunbeam/extensions/sbx_shortbred/config.yml >> sunbeam_config.yml
     ```
 
 2. Get a copy of [USEARCH](https://www.drive5.com/usearch/download.html) and install it in your sbx_shortbred folder. Create a symlink to $CONDA_PREFIX/bin
