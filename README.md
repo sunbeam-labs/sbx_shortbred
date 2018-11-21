@@ -22,7 +22,7 @@
     ln -sf $PWD/usearch10.0.240_i86linux32 $CONDA_PREFIX/bin/usearch
     ```
 
-3. Download the AR-specific marker genes for CARD from the ShortBREAD website
+3. Download the AR-specific marker genes for CARD from the ShortBREAD website OR use the marker genes for a newer version of CARD.
 
     ```bash
     wget https://bitbucket.org/biobakery/shortbred/downloads/ShortBRED_CARD_2017_markers.faa.gz
