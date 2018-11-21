@@ -13,7 +13,7 @@
     cat sunbeam/extensions/sbx_shortbred/config.yml >> sunbeam_config.yml
     ```
 
-2. Get a copy of [USEARCH](https://www.drive5.com/usearch/download.html) and install it in your sbx_shortbred folder. Create a symlink to $CONDA_PREFIX/bin
+2. Get a copy of [USEARCH](https://www.drive5.com/usearch/download.html) and install it in your `sbx_shortbred` folder. Create a symlink to *$CONDA_PREFIX/bin*
     
     ```bash
     PWD=`pwd`
