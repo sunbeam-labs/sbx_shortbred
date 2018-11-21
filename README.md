@@ -1,9 +1,7 @@
 # sbx_shortbred
 
 
-[Sunbeam] extension for running [ShortBRED](http://huttenhower.sph.harvard.edu/shortbred), adapted from
-[eclarke](https://github.com/eclarke)'s
-[shortbred-snakemake](https://github.com/eclarke/shortbred-snakemake).
+[Sunbeam] extension for running [ShortBRED](http://huttenhower.sph.harvard.edu/shortbred).
 
 
 ## Installation
