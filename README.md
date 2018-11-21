@@ -30,7 +30,7 @@
     Link the markder database to the Sunbeam environment
     ```bash
     mkdir -p $CONDA_PREFIX/opt/shortbred_databases
-    ln -sf $PWD/ShortBRED_CARD_2017_markers.faa $CONDA_PREFIX/opt/shortbred_databases
+    ln -sf $PWD/SHORTBRED_CARD_20180628_markers.faa $CONDA_PREFIX/opt/shortbred_databases
     ```
 
 
