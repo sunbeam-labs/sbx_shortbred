@@ -11,8 +11,7 @@
     ```bash
     git clone https://github.com/sunbeam-labs/sbx_shortbred extensions/sbx_shortbred
     cat sunbeam/extensions/sbx_shortbred/config.yml >> sunbeam_config.yml
-    
-    conda env update --name=sunbeam --quiet --file extensions/sbx_shortbred/requirements.txt
+
     ```
 
 2. Get a copy of [USEARCH](https://www.drive5.com/usearch/download.html) and install it in your `sbx_shortbred` folder. Create a symlink to *$CONDA_PREFIX/bin*
@@ -29,12 +28,16 @@
     gunzip ShortBRED_CARD_2017_markers.faa.gz
     ```
     
-    Link the markder database to the Sunbeam environment
+    Link the marker database to the Sunbeam environment
     ```bash
     mkdir -p $CONDA_PREFIX/opt/shortbred_databases
     ln -sf $PWD/SHORTBRED_CARD_20180628_markers.faa $CONDA_PREFIX/opt/shortbred_databases
     ```
-
+    
+    Update the Sunbeam environment.
+    ```bash
+    conda env update --name=sunbeam --quiet --file extensions/sbx_shortbred/requirements.txt
+    ```
 
 ## Running
 
