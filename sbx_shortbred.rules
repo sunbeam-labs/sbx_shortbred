@@ -53,7 +53,7 @@ rule install_shortbred:
   SHORTBRED_VERSION={params.shortbred_version}
   
   # No network access to bitbucket for chop
-  wget https://bitbucket.org/biobakery/shortbred/get/tip.zip -p $DIR || \
+  wget https://bitbucket.org/biobakery/shortbred/get/tip.zip -P $DIR || \
        cp  /mnt/isilon/microbiome/analysis/biodata/tip.zip $DIR
 
   unzip $DIR/tip.zip -d $DIR
